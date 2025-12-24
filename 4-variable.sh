@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Argumnets are extra information you give to your script from the terminal.
+# Here we are passing the arguments to the script and storing them in variables rather than declaring them inside the script.
 
 PERSON1=$1
 PERSON2=$2
