@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Ramesh : Hello Suresh, how are you today?"
+echo "Suresh: Hello Ramesh, I'm doing well, thank you. How about you?"
+echo "Ramesh: I'm doing good, thank you. What have you been up to lately?"
+echo "Suresh: I've been busy with work, but I've also been trying to stay active and healthy. How about you?"
+echo "Ramesh: I've been trying to stay active too, I've been going to the gym a few times a week. What have you been doing for exercise?"
+echo "Suresh: I've been going for runs in the park and also doing some yoga at home. It's been really helpful for me to stay calm and focused."
+echo "Ramesh: That sounds great! I've been trying to incorporate more yoga into my routine too. It's been really helpful for me to stay calm and focused."
+echo "Suresh: Yeah, yoga has been a game-changer for me. Have you been trying any new recipes or cooking lately?"
+echo "Ramesh: Yeah, I've been trying out some new recipes lately. I've been really into baking lately, I've been making a lot of bread and pastries."
+echo "Suresh: Baking sounds fun! I've been trying out some new recipes too, I've been making a lot of smoothies and salads."
+echo "Ramesh: That sounds great! I've been trying to eat healthier too"
