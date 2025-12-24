@@ -9,5 +9,5 @@ sleep 10
 
 END_TIME=$(date +%s)
  TOTA_TIME=$(($END_TIME - $START_TIME))
- 
-echo "Total time taken: $TOTAL_TIME seconds"
+
+echo "Total ttime taken for script executiuon: $TOTAL_TIME seconds"
