@@ -12,10 +12,11 @@ N='\e[0m'  # NO COLOR
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$(date +%F-%H-%M-%S).log"
+LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 
 mkdir -p $LOGS_FOLDER
+echo "script execution started at : $(date)"
 
 USERID=$(id -u)
 if [ "$USERID" -ne 0 ]; then
