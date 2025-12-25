@@ -16,7 +16,7 @@ LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 
 mkdir -p $LOGS_FOLDER
-echo "script execution started at : $(date)"
+echo "script execution started at : $(date)" | tee -a $LOGS_FILE
 
 USERID=$(id -u)
 if [ "$USERID" -ne 0 ]; then
@@ -26,10 +26,10 @@ fi
 
 VALIDATE() {
     if [ $1 -ne 0 ]; then
-        echo -e "installing $2 .... $R failure $N"
+        echo -e "installing $2 .... $R failure $N" | tee -a $LOGS_FILE
         exit 1
     else
-        echo -e "installing $2 .... $G success $N"
+        echo -e "installing $2 .... $G success $N" | tee -a $LOGS_FILE
 
         # HERE $1 is the exit status of the last executed command
         # and $2 is the name of the package
@@ -42,7 +42,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>> $LOGS_FILE
     VALIDATE $? "MySQL"
 else
-    echo -e "MySQL is already installed .... $Y skipped $N"
+    echo -e "MySQL is already installed .... $Y skipped $N" | tee -a $LOGS_FILE
 fi
 
 
@@ -51,7 +51,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y &>> $LOGS_FILE
     VALIDATE $? "Nginx"
 else
-    echo -e "Nginx is already installed .... $Y skipped $N"
+    echo -e "Nginx is already installed .... $Y skipped $N" | tee -a $LOGS_FILE
 fi
 
 
@@ -60,7 +60,7 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y &>> $LOGS_FILE
     VALIDATE $? "Python3"
 else
-    echo -e "Python3 is already installed .... $Y skipped $N"
+    echo -e "Python3 is already installed .... $Y skipped $N" | tee -a $LOGS_FILE
 fi
 
 
