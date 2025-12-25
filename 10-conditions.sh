@@ -5,7 +5,7 @@
 
 NUMBER=$1
 
-#if [ "$NUMBER" -lt 10 ]; then   # -lt is less than operator
+if [ "$NUMBER" -lt 10 ]; then   # -lt is less than operator
     #echo "The given number $NUMBER is less than 10."
     elif [ "$NUMBER" -eq 10 ]; then   # -eq is equal to operator
     echo "The given number $NUMBER is equal to 10."
