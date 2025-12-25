@@ -65,3 +65,5 @@ fi
 
 
 # installation of multiple packages can be done by using functions by validating the installation of each package
+# Unfortnately logs files don't display colors as they are plain text files
+# tee command is used to display the output on the terminal as well as write to the log file
