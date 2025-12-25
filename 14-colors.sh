@@ -10,4 +10,4 @@ C='\e[36m' # CYAN COLOR
 W='\e[37m' # WHITE COLOR
 N='\e[0m'  # NO COLOR
 
-echo -e "$G Hello this is green color $N"
+echo -e "$B Hello this is blue color $N"
