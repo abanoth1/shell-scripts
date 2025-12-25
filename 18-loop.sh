@@ -42,5 +42,14 @@ VALIDATE() {
 # $@ is used to get all the arguments passed to the script
 for PACKAGE in "$@"
 do
-    echo "package is : $PACKAGE"
+ # Check if package is installed
+ dnf list installed $PACKAGE &>> $LOGS_FILE
+
+ # if the exit status is not zero then install the package, else skip the installation
+ if [ $? -ne 0 ]; then
+     dnf install $PACKAGE -y &>> $LOGS_FILE
+     VALIDATE $? "$PACKAGE"
+else
+    echo -e "$PACKAGE is already installed .... $Y skipped $N"
+fi
 done
