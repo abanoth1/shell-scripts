@@ -3,11 +3,11 @@
 
 set -e   # exit immediately if any command exits with a non-zero status
 
-error() {
-  echo " There was an error on $LINENO at command: $BASH_COMMAND " # print the line number and command that caused the error
-}
+# error() {
+#   echo " There was an error on $LINENO at command: $BASH_COMMAND " # print the line number and command that caused the error
+# }
 
-trap error ERR # trap errors and call the error function
+trap 'echo "There is an error in $LINENO, Command is: $BASH_COMMAND"' ERR # trap errors and call the error function
 
 echo "Hello .." 
 echo " Before the error..."
