@@ -42,3 +42,11 @@ if [ ! -d $DEST_DIR ]; then # checking if destination directory exists
     echo -e "$Y WARNING:: DESTINATION DIRECTORY $DEST_DIR DOES NOT EXIST, CREATING IT NOW $N"
     exit 1
 fi
+
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +14)
+
+if [ ! -z "$FILES" ]; then
+    echo -e "$Y INFO:: NO FILES TO BACKUP IN $SOURCE_DIR $N"
+    else
+     echo -e "$G INFO:: FILES FOUND TO BACKUP IN $SOURCE_DIR $N"
+fi
