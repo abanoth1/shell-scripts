@@ -58,5 +58,5 @@ if [ ! -z "${FILES}" ]; then
     echo $FILES | zip -@ -j "$ZIP_FILE_NAME"
 
 else
-    echo -e "$G INFO:: FILES FOUND TO BACKUP IN $SOURCE_DIR $N"
+    echo -e "$G no files found to backup... $Y SKIPPING $N"
 fi
