@@ -13,8 +13,8 @@ DAYS=${3:-14} # if not provided considered as 14 days
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-#LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
-LOG_FILE="$LOGS_FOLDER/backup.log" # modified to run the script as
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
+#LOG_FILE="$LOGS_FOLDER/backup.log" # modified to run the script as
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
@@ -52,7 +52,7 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 if [ ! -z "${FILES}" ]; then
 # STARTING THE BACKUP PROCESS
     echo "FILES FOUND TO BACKUP:$FILES"
-    TIMESTAMP=$(date +%F-%H%M%S)
+    TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     echo "zipping the file name: $ZIP_FILE_NAME"
     echo $FILES | zip -@ -j "$ZIP_FILE_NAME"
