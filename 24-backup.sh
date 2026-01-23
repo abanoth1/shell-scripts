@@ -60,6 +60,7 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS)
      echo "zipping the file name: $ZIP_FILE_NAME"
      find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS | zip -@ -j "$ZIP_FILE_NAME" # -j option to junk the path information
 
+# # VERIFYING IF THE BACKUP WAS SUCCESSFUL
      if [ -f $ZIP_FILE_NAME ]
       then
          echo -e "$G BACKUP SUCCESSFULLY CREATED AT $ZIP_FILE_NAME $N"
