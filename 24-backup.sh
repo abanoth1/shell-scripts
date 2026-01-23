@@ -42,7 +42,7 @@ fi
 
 # CHECKING IF DESTINATION DIRECTORY EXISTS
 if [ ! -d $DEST_DIR ]; then # checking if destination directory exists
-    echo -e "$R DESTINATION $DEST_DIR DOES NOT EXIST, CREATING IT NOW $N"
+    echo -e "$R DESTINATION $DEST_DIR DOES NOT EXIST $N"
     exit 1
 fi
 
