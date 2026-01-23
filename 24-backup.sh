@@ -9,7 +9,7 @@ Y="\e[33m"
 N="\e[0m"
 SOURCE_DIR=$1
 DEST_DIR=$2
-# DAYS=${3:-14} # if not provided considered as 14 days
+DAYS=${3:-14} # if not provided considered as 14 days
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
@@ -47,16 +47,16 @@ if [ ! -d $DEST_DIR ]; then # checking if destination directory exists
 fi
 
 # # FINDING FILES TO BACKUP BASED ON MODIFICATION TIME
-# FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 
-# if [ ! -z "${FILES}" ]; then
+ if [ ! -z "${FILES}" ]; then
 # # STARTING THE BACKUP PROCESS
-#     echo "FILES FOUND TO BACKUP:$FILES"
+   echo "FILES FOUND TO BACKUP:$FILES"
 #     TIMESTAMP=$(date +%F-%H-%M-%S)
 #     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
 #     echo "zipping the file name: $ZIP_FILE_NAME"
 #     echo $FILES | zip -@ -j "$ZIP_FILE_NAME"
 
-# else
-#     echo -e "$G no files found to backup... $Y SKIPPING $N"
-# fi
+else
+     echo  "$G no files found to backup... $Y SKIPPING $N"
+ fi
