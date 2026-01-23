@@ -46,8 +46,8 @@ if [ ! -d $DEST_DIR ]; then # checking if destination directory exists
     exit 1
 fi
 
-# # FINDING FILES TO BACKUP BASED ON MODIFICATION TIME
-FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
+# # FINDING FILES TO BACKUP
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS)
 
  if [ ! -z "${FILES}" ]; then
 # # STARTING THE BACKUP PROCESS
