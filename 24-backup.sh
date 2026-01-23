@@ -79,3 +79,7 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS)
 else
      echo -e "$G no files found to backup... $Y SKIPPING $N"
  fi
+
+ ## My backup script finds specific files in a source directory, compresses them into a timestamped zip file, and stores that zip in a destination directory. 
+ ## This way, the files are transferred in compressed form, and they can be unzipped later in the destination to restore or view them.
+ ## Additionally, the script logs its actions and verifies the success of the backup process.
