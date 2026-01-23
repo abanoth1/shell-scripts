@@ -52,11 +52,11 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
  if [ ! -z "${FILES}" ]; then
 # # STARTING THE BACKUP PROCESS
    echo "FILES FOUND TO BACKUP:$FILES"
-#     TIMESTAMP=$(date +%F-%H-%M-%S)
-#     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
-#     echo "zipping the file name: $ZIP_FILE_NAME"
-#     echo $FILES | zip -@ -j "$ZIP_FILE_NAME"
+     TIMESTAMP=$(date +%F-%H-%M-%S)
+     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+     echo "zipping the file name: $ZIP_FILE_NAME"
+     echo $FILES | zip -@ -j "$ZIP_FILE_NAME"
 
 else
-     echo  "$G no files found to backup... $Y SKIPPING $N"
+     echo -e "$G no files found to backup... $Y SKIPPING $N"
  fi
