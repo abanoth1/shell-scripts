@@ -58,7 +58,22 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS)
      TIMESTAMP=$(date +%F-%H-%M-%S)
      ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
      echo "zipping the file name: $ZIP_FILE_NAME"
-     find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS | zip -@ -j "$ZIP_FILE_NAME"
+     find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS | zip -@ -j "$ZIP_FILE_NAME" # -j option to junk the path information
+
+     if [ -f $ZIP_FILE_NAME ]
+      then
+         echo -e "$G BACKUP SUCCESSFULLY CREATED AT $ZIP_FILE_NAME $N"
+
+    while IFS= read -r filepath # reading each file path line by line IFS is internal field separator
+        do
+            echo "Deleting the file: $filepath"
+            rm -rf $filepath
+            echo "Deleted the file: $filepath"
+        done <<< $FILES  #here document to pass the variable as input to while loop
+
+     else
+         echo -e "$R BACKUP FAILED $N"
+     fi
 
 else
      echo -e "$G no files found to backup... $Y SKIPPING $N"
