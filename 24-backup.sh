@@ -49,6 +49,9 @@ fi
 # # FINDING FILES TO BACKUP
 FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS)
 
+# In my backup script, I used find with -mtime +14, which only matches files older than 14 days.Since my files were new, the script found nothing. 
+# I fixed it by changing to -mtime -14 to match files modified within the last 14 days, and now it works as expected.
+
  if [ ! -z "${FILES}" ]; then
 # # STARTING THE BACKUP PROCESS
    echo "FILES FOUND TO BACKUP:$FILES"
