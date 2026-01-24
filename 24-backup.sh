@@ -58,7 +58,7 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
      TIMESTAMP=$(date +%F-%H-%M-%S)
      ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
      echo "zipping the file name: $ZIP_FILE_NAME"
-     find $SOURCE_DIR -name "*.log" -type f -mtime -$DAYS | zip -@ -j "$ZIP_FILE_NAME" # -j option to junk the path information
+     find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j "$ZIP_FILE_NAME" # -j option to junk the path information
 
 # # VERIFYING IF THE BACKUP WAS SUCCESSFUL
      if [ -f $ZIP_FILE_NAME ]
