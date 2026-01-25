@@ -18,7 +18,7 @@ FINAL_BODY=$(sed \  -e "s/TO_TEAM/$TO_TEAM/g" \  -e "s/ALERT_TYPE/$ALERT_TYPE/g"
     echo "Subject: $SUBJECT"
     echo "Content-Type: text/html"
     echo ""
-    echo "$FORMATTED_BODY"
+    echo "$FINAL_BODY"
 } | msmtp "$TO_ADDRESS"
 
 # Here we are using msmtp to send email using gmail SMTP server
