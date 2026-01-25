@@ -3,7 +3,7 @@
 # IT CAN BE SCHEDULED TO RUN PERIODICALLY USING CRON JOBS TO AUTOMATE THE MONITORING PROCESS
 
 DISK_USAGE=$(df -hT | grep -v Filesystem)
-DISK_THRESHOLD=2 # Set threshold percentage for disk usage alert
+DISK_THRESHOLD=80 # Set threshold percentage for disk usage alert
 IP_ADDRESS=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4) 
 # Here we are getting the local IP address of the machine from the metadata service
 # -s is used to make curl silent
