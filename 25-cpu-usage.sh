@@ -1,0 +1,12 @@
+#!/bin/bash
+# THIS SCRIPT MONITORS THE CPU USAGE OF THE SYSTEM AND LOGS THE USAGE TO A LOG FILE
+# IT CAN BE SCHEDULED TO RUN PERIODICALLY USING CRON JOBS TO AUTOMATE THE MONITORING PROCESS
+
+DISK_USAGE=$(df -hT | grep -v Filesystem)
+
+while IFS= read -r line; 
+do
+
+  echo " Line: $line" # printing each line
+
+done <<< "$DISK_USAGE"
