@@ -17,7 +17,7 @@ do
     PARTITION=$(echo $line | awk '{print $7}') # extracting the partition name
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S') # getting the current timestamp
     if [ $USAGE -ge $DISK_THRESHOLD ]; then
-        MESSAGE+="High disk usage on $PARTITION: $USAGE% at $TIMESTAMP % \n" # + is used to append the message
+        MESSAGE+="High disk usage on $PARTITION: $USAGE% at $TIMESTAMP <br>" # + is used to append the message
     # Here you can add code to send an alert email or notification
     fi
 
