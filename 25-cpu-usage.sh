@@ -11,9 +11,8 @@ do
     USAGE=$(echo $line | awk '{print $6}' | cut -d "%" -f 1) # extracting the usage percentage
     PARTITION=$(echo $line | awk '{print $7}') # extracting the partition name
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S') # getting the current timestamp
-
     if [ $USAGE -ge $DISK_USAGE ]; then
-    echo "High disk usage on $PARTITION: $USAGE% at $TIMESTAMP"
+        echo "High disk usage on $PARTITION: $USAGE% at $TIMESTAMP"
     # Here you can add code to send an alert email or notification
     fi
 
