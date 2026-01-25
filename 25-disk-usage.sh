@@ -10,10 +10,9 @@ IP_ADDRESS=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 
 MESSAGE=""
 while IFS= read -r line; 
-
 do
 #   echo " Line: $line" # printing each line
-    USAGE=$(echo $line | awk '{print $6}' | cut -d "%" -f 1) # extracting the usage percentage
+    USAGE=$(echo $line | awk '{print $6}' | cut -d "%" -f1) # extracting the usage percentage
     PARTITION=$(echo $line | awk '{print $7}') # extracting the partition name
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S') # getting the current timestamp
     if [ $USAGE -ge $DISK_THRESHOLD ]; then
